@@ -1,3 +1,4 @@
+
 <%= form_for(@product) do |f| %>
   <% if @product.errors.any? %>
     <div id="error_explanation">
@@ -10,11 +11,52 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  
+  
+<div class="col-md-6">
+  <div class="card">
+      <div class="header">
+          <h4 class="title">New Product</h4>
+      </div>
+      <div class="content">
+          <form>
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="form-group">
+                           <%= f.label :name %><br>
+                           <%= f.text_field :name, class:"form-control", placeholder:"Name" %>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="form-group">
+                           <%= f.label :price %><br>
+                           <%= f.text_field :price, class:"form-control", placeholder:"Price" %>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="form-group">
+                           <%= f.label :sale_off %><br>
+                           <%= f.text_field :sale_off, class:"form-control", placeholder:"Sale Off" %>
+                      </div>
+                  </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-12">
+                      <div class="form-group">
+                          <%= f.label :description %>
+                          <%= f.text_area :description, rows:"10", class:"form-control", placeholder:"Here can be your description" %>
+                      </div>
+                  </div>
+              </div>
+              <%= f.submit("New Product",class:"btn btn-info btn-fill pull-right") %>
+              <div class="clearfix"></div>
+          </form>
+      </div>
   </div>
+</div>
+
   <div class="field">
     <%= f.label :price %><br>
     <%= f.number_field :price %>
@@ -36,6 +78,6 @@
     <%= f.check_box :product_active %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    
   </div>
 <% end %>
