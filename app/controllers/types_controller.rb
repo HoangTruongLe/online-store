@@ -25,7 +25,7 @@ class TypesController < ApplicationController
   # POST /types.json
   def create
     @type = Type.new(type_params)
-
+    debugger
     respond_to do |format|
       if @type.save
         format.html { redirect_to @type, notice: 'Type was successfully created.' }

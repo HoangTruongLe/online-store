@@ -17,35 +17,35 @@
 
             <ul class="nav">
                 <li class="active">
-                    <a href="dashboard.html">
+                    <%= link_to(root_path) do %>
                         <i class="fa fa-dropbox" aria-hidden="true"></i>
                         <p>Product</p>
-                    </a>
+                    <% end %>
                     
                 </li>
                 <li>
-                    <a href="dashboard.html">
-                        <i class="fa fa-file" aria-hidden="true"></i>
+                    <%= link_to(root_path) do %>
+                        <i class="fa fa-folder-open-o" aria-hidden="true"></i>
                         <p>Type</p>
-                    </a>
+                    <% end %>
                 </li>
                 <li>
-                    <a href="dashboard.html">
+                    <%= link_to(root_path) do %>
                         <i class="fa fa-truck" aria-hidden="true"></i>
                         <p>Vendor</p>
-                    </a>
+                    <% end %>
                 </li>
                 <li>
-                    <a href="dashboard.html">
+                    <%= link_to(root_path) do %>
                         <i class="fa fa-user" aria-hidden="true"></i>
                         <p>User</p>
-                    </a>
+                    <% end %>
                 </li>
                 <li>
-                    <a href="dashboard.html">
+                    <%= link_to(root_path) do %>
                         <i class="fa fa-globe" aria-hidden="true"></i>
                         <p>Message</p>
-                    </a>
+                    <% end %>
                 </li>
             </ul>
     	</div>
@@ -90,7 +90,9 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
-                    <%= yield %>
+                    <div  data-no-turbolink="">
+                         <%= yield %>
+                    </div>
                 </div>
             </div>
         </div>

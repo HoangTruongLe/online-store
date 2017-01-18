@@ -1,6 +1,5 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
-
   # GET /products
   # GET /products.json
   def index
@@ -15,6 +14,7 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+    @product_photo = @product.product_photos.build
   end
 
   # GET /products/1/edit
@@ -25,9 +25,13 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-
     respond_to do |format|
       if @product.save
+        if params[:photos]
+          params[:photos].each { |image|
+            @product.product_photos.create(photo: image)
+          }
+        end
         format.html { redirect_to @product, notice: 'Product was successfully created.' }
         format.json { render :show, status: :created, location: @product }
       else
@@ -42,6 +46,11 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
+        if params[:photos]
+          params[:photos].each { |image|
+            @product.product_photos.create(photo: image)
+          }
+        end
         format.html { redirect_to @product, notice: 'Product was successfully updated.' }
         format.json { render :show, status: :ok, location: @product }
       else
@@ -69,6 +78,17 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :price, :sale_off, :description, :is_service, :product_active)
+      params.require(:product)
+      .permit(:name, 
+              :price, 
+              :type_id,
+              :vendor_id,
+              :video_url,
+              :caption,
+              :sale_off, 
+              :description, 
+              :is_service, 
+              :product_active)
     end
+
 end
