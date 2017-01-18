@@ -11,13 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170115153309) do
+ActiveRecord::Schema.define(version: 20170118025534) do
 
-  create_table "product_types", force: :cascade do |t|
+  create_table "product_photos", force: :cascade do |t|
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
     t.integer  "product_id"
-    t.integer  "type_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "product_vendors", force: :cascade do |t|

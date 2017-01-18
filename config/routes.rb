@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :product_photos
   root 'products#index'
   resources :vendors
   resources :types
