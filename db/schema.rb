@@ -11,16 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170116060822) do
+ActiveRecord::Schema.define(version: 20170115153309) do
 
-  create_table "product_photos", force: :cascade do |t|
-    t.string   "photo"
+  create_table "product_types", force: :cascade do |t|
     t.integer  "product_id"
+    t.integer  "type_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "product_photos", ["product_id"], name: "index_product_photos_on_product_id"
+  create_table "product_vendors", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "vendor_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "products", force: :cascade do |t|
     t.string   "name"
@@ -31,14 +36,7 @@ ActiveRecord::Schema.define(version: 20170116060822) do
     t.boolean  "product_active"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.integer  "type_id"
-    t.integer  "vendor_id"
-    t.string   "video_url"
-    t.text     "caption"
   end
-
-  add_index "products", ["type_id"], name: "index_products_on_type_id"
-  add_index "products", ["vendor_id"], name: "index_products_on_vendor_id"
 
   create_table "types", force: :cascade do |t|
     t.string   "name"

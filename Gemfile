@@ -23,9 +23,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'mini_magick', '~> 4.6'
-gem 'paperclip'
-gem 'therubyracer'
+gem 'carrierwave'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 
@@ -56,5 +54,4 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
-  gem 'fog'
 end
