@@ -215,13 +215,14 @@
     // ======================
 
     var BootstrapTable = function (el, options) {
-        this.options = options;
-        this.$el = $(el);
-        this.$el_ = this.$el.clone();
-        this.timeoutId_ = 0;
-        this.timeoutFooter_ = 0;
 
-        this.init();
+            this.options = options;
+            this.$el = $(el);
+            this.$el_ = this.$el.clone();
+            this.timeoutId_ = 0;
+            this.timeoutFooter_ = 0;
+    
+            this.init();
     };
 
     BootstrapTable.DEFAULTS = {
@@ -514,7 +515,7 @@
     
     BootstrapTable.prototype.initContainer = function () {
         this.$container = $([
-            '<div class="bootstrap-table">',
+            '<div class="bootstrap-table" id="js-table">',
                 '<div class="fixed-table-toolbar"></div>',
                     this.options.paginationVAlign === 'top' || this.options.paginationVAlign === 'both' ?
                     '<div class="fixed-table-pagination" style="clear: both;"></div>' :
